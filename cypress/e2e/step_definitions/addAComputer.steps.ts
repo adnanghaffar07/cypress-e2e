@@ -1,10 +1,10 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { When, Then,Given } from '@badeball/cypress-cucumber-preprocessor'
 
-When('I visit the app url', () => {
+Given('I visit the app url', () => {
   cy.visit(Cypress.env('appUrl'))
 })
 
-Then("I should see the 'Computer database' title", () => {
+When("I see the 'Computer database' title", () => {
   cy.contains('Computer database').should('be.visible')
 })
 
@@ -12,7 +12,7 @@ Then("I click on 'Add a new computer' Button", () => {
   cy.get('#add').should('be.visible').click()
 })
 
-Then("I should see 'Add a computer' title", () => {
+Then("I see 'Add a computer' title", () => {
   cy.contains('Add a computer').should('be.visible').click()
 })
 
@@ -20,7 +20,16 @@ Then("I click on 'Create this computer' button", () => {
   cy.contains('Create this computer').should('exist').click()
 })
 
-Then('I should see error message', () => {
+Then("I see 'Add a computer' form", () => {
+  cy.get('#name').should('be.visible')
+  cy.get('#introduced').should('be.visible')
+  cy.get('#discontinued').should('be.visible')
+  cy.get('#company').should('be.visible')
+  cy.contains('Create this computer').should('be.visible')
+  cy.contains('Cancel').should('be.visible')
+})
+
+Then('I see error message', () => {
   cy.get('.error').should('be.visible')
 })
 
@@ -54,7 +63,7 @@ Then("I mistakenly click on 'Cancel' button", () => {
   cy.contains('Cancel').should('be.visible').click()
 })
 
-Then('I should see successfully created computer alert message', () => {
+Then('I see successfully created computer alert message', () => {
   cy.get('.alert-message')
     .should('be.visible')
     .invoke('text')
