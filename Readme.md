@@ -33,3 +33,6 @@
 - Report file will be generated in the `reports` folder.
 - Open the report `index.html` into browser
 
+## External Links
+- Test Case Sheet [link](https://docs.google.com/spreadsheets/d/1Y6t9_JI1Y25sKCAsK9vQJnfUaT0BQcDUHIt3pzsG2vU/edit#gid=625224187) 
+- Project Wiki [link](https://docs.google.com/document/d/1Kex3yrhMmp-0WrzN1ZZn8fMSwvODQaM6hZZgtsRnMQQ)
