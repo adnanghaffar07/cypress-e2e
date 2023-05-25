@@ -1,4 +1,4 @@
-# End to End gatling.io Web Automation Testing
+# End to End Web Automation Testing
 ## Prerequisite 
 - Node (v16.17.0) or Greater version [link](https://www.npackd.org/p/org.nodejs.NodeJS64/14.17.4) 
 - VS Code (v1.76) or Greater version [link](https://code.visualstudio.com/docs/?dv=win) 
@@ -32,7 +32,3 @@
  ```
 - Report file will be generated in the `reports` folder.
 - Open the report `index.html` into browser
-
-## External Links
-- Test Case Sheet [link](https://docs.google.com/spreadsheets/d/1Y6t9_JI1Y25sKCAsK9vQJnfUaT0BQcDUHIt3pzsG2vU/edit#gid=625224187) 
-- Project Wiki [link](https://docs.google.com/document/d/1Kex3yrhMmp-0WrzN1ZZn8fMSwvODQaM6hZZgtsRnMQQ)
