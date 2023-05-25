@@ -47,7 +47,7 @@ async function setupNodeEvents(
 }
 
 export default defineConfig({
-  projectId: "ca14042023",
+  projectId: "",
   video: true,
   trashAssetsBeforeRuns: true,
   chromeWebSecurity: false,
@@ -55,9 +55,9 @@ export default defineConfig({
   videoUploadOnPasses: false,
   viewportHeight: 1080,
   viewportWidth: 1920,
-  defaultCommandTimeout: 150000,
+  defaultCommandTimeout: 15000,
   env: {
-    appUrl: "https://computer-database.gatling.io/computers",  
+    appUrl: "http://127.0.0.1:3000/",  
   },
   e2e: {
     specPattern: "**/*.feature",

@@ -4,33 +4,37 @@ Given('I visit the app url', () => {
   cy.visit(Cypress.env('appUrl'))
 })
 
-When("I see the 'Computer database' title", () => {
-  cy.contains('Computer database').should('be.visible')
+When("I see the 'ReactMeals' in header", () => {
+  cy.contains('ReactMeals').should('be.visible')
 })
 
-Then("I click on 'Add a new computer' Button", () => {
-  cy.get('#add').should('be.visible').click()
+Then("I add 'Sushi' to the cart", () => {
+  cy.get('section.AvailableMeals_meals__VDMeE:nth-child(2) >* li:nth-child(1)>* button').should('be.visible').click()
 })
 
-Then("I see 'Add a computer' title", () => {
-  cy.contains('Add a computer').should('be.visible').click()
+Then("I see 'Sushi' in the cart", () => {
+  cy.get('ul.Cart_cart-items__GzJDe').contains('Sushi').should('be.visible');
 })
 
-Then("I click on 'Create this computer' button", () => {
-  cy.contains('Create this computer').should('exist').click()
+Then("I click on 'Your Cart' button", () => {
+  cy.contains('Your Cart').should('exist').click()
 })
 
-Then("I see 'Add a computer' form", () => {
-  cy.get('#name').should('be.visible')
-  cy.get('#introduced').should('be.visible')
-  cy.get('#discontinued').should('be.visible')
-  cy.get('#company').should('be.visible')
-  cy.contains('Create this computer').should('be.visible')
-  cy.contains('Cancel').should('be.visible')
+Then("I click on '+' button", () => {
+  cy.get('.CartItem_amount__rm6jm') // Locate the <span> element using its class
+  .invoke('text') // Get the text content of the element
+  .then(text => {
+    const value = parseInt(text.trim().split(' ')[1]); // Extract the integer value from the text
+    cy.wrap(value).as('cartCount'); // Store the value in the 'temp' variable for later use
+    cy.get('div.CartItem_actions__PRQYW > button:nth-child(2)').should('exist').click()
+  });
 })
 
-Then('I see error message', () => {
-  cy.get('.error').should('be.visible')
+Then('I see quantity get increased', () => {
+  cy.get('@cartCount').then(count => {
+    cy.get('.CartItem_amount__rm6jm').should('be.visible').should('have.text',count)
+  })
+  
 })
 
 Then('I enter {string} in computer name field', (item) => {
